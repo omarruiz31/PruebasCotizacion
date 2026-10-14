@@ -270,15 +270,22 @@ class CotizadorImpresionTest {
     @Test
     @DisplayName("CP030")
     void CP030_usuarioExterno_devuelve_442(){
-        BigDecimal cotizar = cotizador.cotizar(TipoUsuario.DOCENTE,100,true,true);
+        BigDecimal cotizar = cotizador.cotizar(TipoUsuario.EXTERNO,100,true,true);
         assertEquals(new BigDecimal("442.46"),cotizar);
     }
 
     @Test
     @DisplayName("CP031")
-    void CP031_usuarioExterno_devuelve_442(){
+    void CP031_usuarioDocente_devuelve_442(){
         BigDecimal cotizar = cotizador.cotizar(TipoUsuario.DOCENTE,400,false,true);
-        assertEquals(new BigDecimal("144.00"),cotizar);
+        assertEquals(new BigDecimal("126.72"),cotizar);
+    }
+
+    @Test
+    @DisplayName("CP032")
+    void CP032_usuarioEstudiante_devuelve_2(){
+        BigDecimal cotizar = cotizador.cotizar(TipoUsuario.ESTUDIANTE,3,false,false);
+        assertEquals(new BigDecimal("2.00"),cotizar);
     }
 
 }
