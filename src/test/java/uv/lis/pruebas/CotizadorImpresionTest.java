@@ -61,7 +61,7 @@ class CotizadorImpresionTest {
     @DisplayName("CP06. 501 Páginas; Devuelve Excepcion Fuera de Rango")
     void CP06_501PaginasDevuelveExcepcionFueraDeRango(){
         IllegalArgumentException excepcion = assertThrows(IllegalArgumentException.class, () -> {
-            cotizador.cotizar(null, 501, false, false);
+            cotizador.cotizar(TipoUsuario.ESTUDIANTE, 501, false, false);
         });
 
         assertEquals("PAGINAS FUERA DE RANGO: 501", excepcion.getMessage());
@@ -71,7 +71,7 @@ class CotizadorImpresionTest {
     @DisplayName("CP07. 0 Páginas; Devuelve Excepcion Fuera de Rango")
     void CP07_0PaginasDevuelveExcepcionFueraDeRango(){
         IllegalArgumentException excepcion = assertThrows(IllegalArgumentException.class, () -> {
-            cotizador.cotizar(null, 0, false, false);
+            cotizador.cotizar(TipoUsuario.ESTUDIANTE, 0, false, false);
         });
 
         assertEquals("PAGINAS FUERA DE RANGO: 0", excepcion.getMessage());
