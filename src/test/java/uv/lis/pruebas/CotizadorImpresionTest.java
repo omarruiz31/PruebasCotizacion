@@ -52,7 +52,7 @@ class CotizadorImpresionTest {
 
     @Test
     @DisplayName("CP05. 500 Páginas BN; Devuelve 320.00")
-    void CP05_500PaginasDevuelve320000(){
+    void CP05_500PaginasDevuelve320(){
         BigDecimal cotizar = cotizador.cotizar(TipoUsuario.ESTUDIANTE, 500,false,false);
         assertEquals(new BigDecimal("320.00"), cotizar);
     }
@@ -287,5 +287,4 @@ class CotizadorImpresionTest {
         BigDecimal cotizar = cotizador.cotizar(TipoUsuario.ESTUDIANTE,3,false,false);
         assertEquals(new BigDecimal("2.00"),cotizar);
     }
-
 }
